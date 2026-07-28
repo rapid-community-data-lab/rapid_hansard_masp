@@ -1,0 +1,8 @@
+package-lock.json
+node_modules/
+*.DS_Store
+schema/schema-crate/ro-crate-metadata.json
+schema/schema-crate/ro-crate-preview.html
+schema/schema-crate/index.html
+schema/schema-crate/schema-documentation.md
+test/*

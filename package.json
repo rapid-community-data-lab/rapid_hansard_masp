@@ -1,0 +1,13 @@
+{
+    "name": "masp-templates",
+    "description": "Templates available for use with ro-crate-masp (RO-Crate Machine Actionable Schemas and Profiles)",
+    "scripts": {
+        "build:profile": "generate-masp-docs profile/profile-crate/ro-crate-metadata.json profile/profile-text.md profile/profile-crate/profile-documentation.md",
+        "build:schema": "generate-masp-docs schema/schema-crate/ro-crate-metadata.json schema/schema-text.md schema/schema-crate/schema-documentation.md"
+    },
+    "author": "Rosanna Smith",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "ro-crate-masp": "github:Language-Research-Technology/ro-crate-masp"
+    }
+}
