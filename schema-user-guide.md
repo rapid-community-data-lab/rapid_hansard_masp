@@ -53,10 +53,10 @@ name | `template` | The prefix for the schema descriptor. This should be a uniqu
 
 ### @type=File
 
-@id | @type | name | description | dateModified | encodingFormat
---- | --- | --- | --- | --- | ---
-`schema-documentation.md` | `File` | `schema-documentation.md` |  | `2026-07-24T16:18:34+10:00` | `["https://www.nationalarchives.gov.uk/PRONOM/fmt/1149", "text/markdown"]`
-`index.html` | `File` | `index.html` |  | `2026-07-24T16:18:34+10:00` | `["https://www.nationalarchives.gov.uk/PRONOM/fmt/471", "text/html"]`
+@id | @type | name | description |
+--- | --- | --- | --- |
+`schema-documentation.md` | `File` | `schema-documentation.md` |  |
+`index.html` | `File` | `index.html` |  |
 
 ### Organization
 
@@ -90,7 +90,8 @@ The `Classes` sheet contains the specialized schema classes defined in the schem
 
 Column | Example | Description
 --- | --- | ---
-@id | `template:ClassExample` | The unique identifier for the class. The `template:` prefix should be updated to your schema descriptor, e.g. `ldac:`. Use PascalCase for the class name.
+@id | `template:ClassExample` | The unique identifier for the class. The template populates this with the prefix in `@context` and the class name from the `.id` column.
+.id | `ClassExample` | The identifier for the class without the schema descriptor prefix. Use PascalCase for the class name. This is used to generate the `@id` for the class in the schema.
 @type | `rdfs:Class` | The type of the entity. This should always be `rdfs:Class`.
 name | `Class Example` | The name of the class in a human-readable format.
 description | `This is an example of a class and its format.` | A description of the class and how it should be used.
@@ -103,13 +104,14 @@ The `Properties` sheet contains the specialized schema properties defined in the
 
 Column | Example | Description
 --- | --- | ---
-@id | `template:propertyExample` | The unique identifier for the property. The `template:` prefix should be updated to your schema descriptor, e.g. `ldac:`. Use camelCase for the property name.
+@id | `template:propertyExample` | The unique identifier for the property. The template populates this with the prefix in `@context` and the property name from the `.id` column.
+.id | `propertyExample` | The identifier for the property without the schema descriptor prefix. Use camelCase for the property name. This is used to generate the `@id` for the property in the schema.
 @type | `rdf:Property` | The type of the entity. This should always be `rdf:Property`.
 name | `Property Example` | The name of the property in a human-readable format.
 description | `This is an example of a property and its format.` | A description of the property and how it should be used.
-rdfs:label | `template:propertyExample` | The label for the property. The template populates this with the same value as the `@id` column.
 domainIncludes | `"template:ClassExample"` | The class that this property can be used with.
 rangeIncludes | `"@id": "http://schema.org/Text"` | The type of values that this property can have.
+rdfs:label | `template:propertyExample` | The label for the property. The template populates this with the same value as the `@id` column.
 isReverse_hasPart | `#hasSpecializedSchema` | The `@id` of the `ResourceDescriptor` entity that lists the specialized schema terms defined in the schema. This should be the same value as the `@id` column in the `ResourceDescriptor` sheet.
 
 ### DefinedTermSets
@@ -118,7 +120,8 @@ The `DefinedTermSets` sheet contains the specialized schema defined term sets de
 
 Column | Example | Description
 --- | --- | ---
-@id | `template:DefinedTermSetExample` | The unique identifier for the defined term set. The `template:` prefix should be updated to your schema descriptor, e.g. `ldac:`. Use PascalCase for the defined term set name.
+@id | `template:DefinedTermSetExample` | The unique identifier for the defined term set. The template populates this with the prefix in `@context` and the defined term set name from the `.id` column.
+.id | `DefinedTermSetExample` | The identifier for the defined term set without the schema descriptor prefix. Use PascalCase for the defined term set name. This is used to generate the `@id` for the defined term set in the schema.
 @type | `DefinedTermSet` | The type of the entity. This should always be `DefinedTermSet`.
 name | `Defined Term Set Example` | The name of the defined term set in a human-readable format.
 description | `This is an example of a defined term set and its format.` | A description of the defined term set and how it should be used.
@@ -132,7 +135,8 @@ The `DefinedTerms` sheet contains the specialized schema defined terms defined i
 
 Column | Example | Description
 --- | --- | ---
-@id | `template:DefinedTermExample` | The unique identifier for the defined term. The `template:` prefix should be updated to your schema descriptor, e.g. `ldac:`. Use PascalCase for the defined term name.
+@id | `template:DefinedTermExample` | The unique identifier for the defined term. The template populates this with the prefix in `@context` and the defined term name from the `.id` column.
+.id | `DefinedTermExample` | The identifier for the defined term without the schema descriptor prefix. Use PascalCase for the defined term name. This is used to generate the `@id` for the defined term in the schema.
 @type | `DefinedTerm` | The type of the entity. This should always be `DefinedTerm`.
 name | `Defined Term Example` | The name of the defined term in a human-readable format.
 description | `This is an example of a defined term and its format.` | A description of the defined term and how it should be used.
@@ -146,7 +150,8 @@ The `ItemLists` sheet contains a list of item lists that are part of the schema.
 
 Column | Example | Description
 --- | --- | ---
-@id | `#itemListExample` | The unique identifier for the item list. The `template:` prefix should be updated to your schema descriptor, e.g. `ldac:`. Use camelCase for the item list name.
+@id | `#itemListExample` | The unique identifier for the item list. The template populates this with the prefix `#` and the item list name from the `.id` column.
+.id | `itemListExample` | The identifier for the item list without the schema descriptor prefix. Use camelCase for the item list name. This is used to generate the `@id` for the item list in the schema.
 @type | `ItemList` | The type of the entity. This should always be `ItemList`.
 name | `Item List Example` | The name of the item list in a human-readable format.
 description | `This is an example of an item list and its format.` | A description of the item list and how it should be used.
@@ -157,7 +162,8 @@ The `ItemInstances` sheet contains a list of item instances that are part of an 
 
 Column | Example | Description
 --- | --- | ---
-@id | `template:ItemInstanceExample` | The unique identifier for the item instance. The `template:` prefix should be updated to your schema descriptor, e.g. `ldac:`. Use PascalCase for the item instance name.
+@id | `template:ItemInstanceExample` | The unique identifier for the item instance. The template populates this with the prefix in `@context` and the item instance name from the `.id` column.
+.id | `ItemInstanceExample` | The identifier for the item instance without the schema descriptor prefix. Use PascalCase for the item instance name. This is used to generate the `@id` for the item instance in the schema.
 @type | `template:ItemListClassExample` | The type of the entity. This should be a class that is a specialization of `ItemList`. The `template:` prefix should be updated to your schema descriptor, e.g. `ldac:`. Use PascalCase for the class name.
 name | `Item Instance Example` | The name of the item instance in a human-readable format.
 description | `This is an example of an item instance and its format.` | A description of the item instance and how it should be used.
@@ -175,3 +181,17 @@ Complete list of the rules available to populate the document:
  - `$rules.allPropertyValues`: TODO
  - `${rules.allDefinedTermSets}`: Generate documentation for each entity with the type [DefinedTermSet](https://schema.org/DefinedTermSet) and their expected Defined Terms.
  - `${rules.allItemLists}`: Generate documentation for each entity with the type [ItemList](https://schema.org/ItemList) and their expected Item Instances.
+
+ ## Generate Schema Documentation
+
+ Current process below, to update.
+
+Convert the spreadsheet to JSON-LD:
+```
+rocxl schema/schema-crate -a
+```
+
+Generate documentation for the schema:
+```
+npm run build:schema
+```
