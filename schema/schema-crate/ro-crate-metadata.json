@@ -1,1 +1,207 @@
-{}
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/",
+      "template": "https://w3id.org/template/terms#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "identifier": "ro-crate-metadata.json",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      }
+    },
+    {
+      "@id": "https://ror.org/00rqy9422",
+      "@type": "Organization",
+      "name": "University of Queensland"
+    },
+    {
+      "@id": "https://w3id.org/ro/ro-crate-masp/profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile"
+    },
+    {
+      "@id": "https://www.apache.org/licenses/LICENSE-2.0.html",
+      "@type": "CreativeWork",
+      "name": "Apache License, Version 2.0"
+    },
+    {
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "template:ClassExample"
+        },
+        {
+          "@id": "template:ItemListClassExample"
+        },
+        {
+          "@id": "template:propertyExample"
+        },
+        {
+          "@id": "template:definedTermSetPropertyExample"
+        },
+        {
+          "@id": "template:itemListPropertyExample"
+        },
+        {
+          "@id": "template:DefinedTermSetExample"
+        },
+        {
+          "@id": "template:DefinedTermExample"
+        },
+        {
+          "@id": "template:ItemInstanceExample"
+        }
+      ]
+    },
+    {
+      "@id": "template:ClassExample",
+      "@type": "rdfs:Class",
+      "name": "Class Example",
+      "description": "This is an example of a standard class and its format.",
+      "rdfs:label": "template:ClassExample",
+      "rdfs:comment": "This is an example of a standard class and its format.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "template:ItemListClassExample",
+      "@type": "rdfs:Class",
+      "name": "Item List Class Example",
+      "description": "This is an example of a class to be used as an @type with a list of item instances.",
+      "rdfs:label": "template:ItemListClassExample",
+      "rdfs:comment": "This is an example of a class to be used as an @type with a list of item instances.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "template:propertyExample",
+      "@type": "rdf:Property",
+      "name": "Property Example",
+      "description": "This is an example of a standard property and its format.",
+      "domainIncludes": {
+        "@id": "template:ClassExample"
+      },
+      "rangeIncludes": {
+        "@id": "http://schema.org/Text"
+      },
+      "rdfs:label": "Property Example",
+      "rdfs:comment": "This is an example of a standard property and its format.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "template:definedTermSetPropertyExample",
+      "@type": "rdf:Property",
+      "name": "Defined Term Set Property Example",
+      "description": "This is an example of a property whose values are expected to be terms from a defined term set.",
+      "domainIncludes": {
+        "@id": "template:ClassExample"
+      },
+      "rangeIncludes": {
+        "@id": "template:DefinedTermSetExample"
+      },
+      "rdfs:label": "Defined Term Set Property Example",
+      "rdfs:comment": "This is an example of a property whose values are expected to be terms from a defined term set.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "template:itemListPropertyExample",
+      "@type": "rdf:Property",
+      "name": "Item List Property Example",
+      "description": "This is an example of a property whose values are expected to be terms from an item list.",
+      "domainIncludes": {
+        "@id": "template:ClassExample"
+      },
+      "rangeIncludes": {
+        "@id": "#itemListExample"
+      },
+      "rdfs:label": "Item List Property Example",
+      "rdfs:comment": "This is an example of a property whose values are expected to be terms from an item list.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "template:DefinedTermSetExample",
+      "@type": "DefinedTermSet",
+      "name": "Defined Term Set Example",
+      "description": "This is an example of a defined term set and its format.",
+      "rdfs:label": "template:DefinedTermSetExample",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "template:DefinedTermExample",
+      "@type": "DefinedTerm",
+      "name": "Defined Term Example",
+      "description": "This is an example of a defined term and its format.",
+      "rdfs:label": "template:DefinedTermExample",
+      "inDefinedTermSet": {
+        "@id": "template:DefinedTermSetExample"
+      },
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "template:ItemInstanceExample",
+      "@type": "template:ItemListClassExample",
+      "name": "Item Instance Example",
+      "description": "This is an example of an item instance and its format.",
+      "rdfs:label": "template:ItemInstanceExample",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "#itemListExample",
+      "@type": "ItemList",
+      "name": "Item List Example",
+      "description": "This is an example of an item list and its format.",
+      "itemListElement": {
+        "@id": "template:ItemInstanceExample"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Template RO-Crate Schema",
+      "description": "This is a template for an RO-Crate schema.",
+      "author": {
+        "@id": "https://ror.org/00rqy9422"
+      },
+      "license": {
+        "@id": "https://www.apache.org/licenses/LICENSE-2.0.html"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/ro-crate-masp/profile"
+      },
+      "hasResource": {
+        "@id": "#hasSpecializedSchema"
+      }
+    }
+  ]
+}
