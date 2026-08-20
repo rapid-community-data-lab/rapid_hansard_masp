@@ -7,19 +7,19 @@ This is a user guide for creating new schemas with `ro-crate-masp`. In your fork
 
 ## Edit Schema Spreadsheet
 
-The spreadsheet `schema/schema-crate/additional-ro-crate-metadata.xlsx` is a template for describing the metadata of a schema. This includes information about the schema's structure and relationships, and allows you to describe terms including Classes, Properties, Defined Terms and Item Instances. It contains the following sheets:
+The spreadsheet `schema/schema-crate/additional-ro-crate-metadata.xlsx` is a template for describing the metadata of a schema. This includes information about the schema's structure and relationships, and allows you to describe terms including Classes, Properties, Defined Terms and Item List Elements. It contains the following sheets:
 
 - [RootDataset](#rootdataset): Contains the root dataset entity for the schema.
 - [@context](#@context): Contains the `@context` entity for the schema.
-- [Organization](#organization): Contains the `Organization` entity for the schema.
-- [CreativeWork](#creativework): Contains the `CreativeWork` entities for the schema.
-- [ResourceDescriptor](#resourcedescriptor): Contains the `ResourceDescriptor` entity for the schema.
-- [Classes](#classes): Contains the `Class` entities for the schema.
-- [Properties](#properties): Contains the `Property` entities for the schema.
-- [DefinedTermSets](#definedtermsets): Contains the `DefinedTermSet` entities for the schema.
-- [DefinedTerms](#definedterms): Contains the `DefinedTerm` entities for the schema.
-- [ItemLists](#itemlists): Contains the `ItemList` entities for the schema.
-- [ItemInstances](#iteminstances): Contains the `ItemInstance` entities for the schema.
+- [Organization](#organization): Contains the [Organization](http://schema.org/Organization) entity for the schema.
+- [CreativeWork](#creativework): Contains the [CreativeWork](http://schema.org/CreativeWork) entities for the schema.
+- [ResourceDescriptor](#resourcedescriptor): Contains the [ResourceDescriptor](http://www.w3.org/ns/dx/prof/ResourceDescriptor) entity for the schema.
+- [Classes](#classes): Contains the [Class](http://schema.org/Class) entities for the schema.
+- [Properties](#properties): Contains the [Property](http://schema.org/Property) entities for the schema.
+- [DefinedTermSets](#definedtermsets): Contains the [DefinedTermSet](http://schema.org/DefinedTermSet) entities for the schema, if applicable.
+- [DefinedTerms](#definedterms): Contains the [DefinedTerm](http://schema.org/DefinedTerm) entities for the schema, if applicable.
+- [ItemLists](#itemlists): Contains the [ItemList](http://schema.org/ItemList) entities for the schema, if applicable.
+- [ItemListElements](#itemlistelements): Contains the [ItemListElement](http://schema.org/itemListElement) entities for the schema, if applicable.
 
 > NOTE: Quotation marks around entities in the spreadsheet, e.g. `"template:ClassExample"`, indicate that the value is referencing the `@id` of another entity in the schema.
 
@@ -79,7 +79,7 @@ name | `Apache License, Version 2.0` | The name of the license in a human-readab
 
 ### ResourceDescriptor
 
-The `ResourceDescriptor` sheet contains the entity that all other specialized schema terms (Classes, Properties, DefinedTermSets, DefinedTerms, ItemLists, ItemInstances) are listed under. It contains the following columns:
+The `ResourceDescriptor` sheet contains the entity that all other specialized schema terms (Classes, Properties, DefinedTermSets, DefinedTerms, ItemLists, ItemListElements) are listed under. It contains the following columns:
 
 Column | Example | Description
 --- | --- | ---
@@ -161,19 +161,19 @@ Column | Example | Description
 name | `Item List Example` | The name of the item list in a human-readable format.
 description | `This is an example of an item list and its format.` | A description of the item list and how it should be used.
 
-### ItemInstances
+### ItemListElements
 
-The `ItemInstances` sheet contains a list of item instances that are part of an `ItemList` in the schema. Each item instance is represented as a row in the sheet, with the following columns:
+The `ItemListElements` sheet contains a list of item elements that are part of an `ItemList` in the schema. Each item element is represented as a row in the sheet, with the following columns:
 
 Column | Example | Description
 --- | --- | ---
-@id | `template:ItemInstanceExample` | The unique identifier for the item instance. The template populates this with the prefix in `@context` and the item instance name from the `.id` column.
-.id | `ItemInstanceExample` | The identifier for the item instance without the schema descriptor prefix. Use PascalCase for the item instance name. This is used to generate the `@id` for the item instance in the schema.
+@id | `template:ItemListElementExample` | The unique identifier for the item element. The template populates this with the prefix in `@context` and the item element name from the `.id` column.
+.id | `ItemListElementExample` | The identifier for the item element without the schema descriptor prefix. Use PascalCase for the item element name. This is used to generate the `@id` for the item element in the schema.
 @type | `template:ItemListClassExample` | The type of the entity. This should be a class that is a specialization of `ItemList`. The `template:` prefix should be updated to your schema descriptor, e.g. `ldac:`. Use PascalCase for the class name.
-name | `Item Instance Example` | The name of the item instance in a human-readable format.
-description | `This is an example of an item instance and its format.` | A description of the item instance and how it should be used.
-rdfs:label | `template:ItemInstanceExample` | The label for the item instance. The template populates this with the same value as the `@id` column.
-isReverse_itemListElement | `#itemListExample` | The `@id` of the `ItemList` entity that this item instance is an element of. This should be the same value as the `@id` column in the `ItemLists` sheet.
+name | `Item List Element Example` | The name of the item element in a human-readable format.
+description | `This is an example of an item element and its format.` | A description of the item element and how it should be used.
+rdfs:label | `template:ItemListElementExample` | The label for the item element. The template populates this with the same value as the `@id` column.
+isReverse_itemListElement | `#itemListExample` | The `@id` of the `ItemList` entity that this item element is part of. This should be the same value as the `@id` column in the `ItemLists` sheet.
 isReverse_hasPart | `#hasSpecializedSchema` | The `@id` of the `ResourceDescriptor` entity that lists the specialized schema terms defined in the schema. This should be the same value as the `@id` column in the `ResourceDescriptor` sheet.
 
 ## Edit Schema Text
@@ -185,7 +185,7 @@ Complete list of the rules available to populate the document:
  - `${rules.allClasses}`: Generate documentation for each Class and their expected Properties. This option will also create an _All Properties_ section with a summary of each property in the schema.
  - `$rules.allPropertyValues`: Specific values such as strings, expected as a value for a property, for example, a particular file must have an @id of README.md.
  - `${rules.allDefinedTermSets}`: Generate documentation for each entity with the type [DefinedTermSet](https://schema.org/DefinedTermSet) and their expected Defined Terms.
- - `${rules.allItemLists}`: Generate documentation for each entity with the type [ItemList](https://schema.org/ItemList) and their expected Item Instances.
+ - `${rules.allItemLists}`: Generate documentation for each entity with the type [ItemList](https://schema.org/ItemList) and their expected Item List Elements.
 
 ## Generate Schema Documentation
 
