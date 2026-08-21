@@ -47,7 +47,7 @@ The `@context` sheet describes the namespace and unique identifier of the schema
 Column | Example | Description
 --- | --- | ---
 name | `template` | The namespace for the schema descriptor. In the other metadata tabs, this namespace is prefixed to the terms. This should be a unique namespace for your schema, e.g. `ldac`.
-@id | `arcp://name,template-schema/terms#` | The unique identifier for the schema descriptor. This should be a persistent, managed unique ID in URL format (if available), e.g. `https://w3id.org/ldac/terms#`. The default uses an `arcp` URI, which can be used for schemas that don't have a persistent, managed unique ID or won't be published.
+@id | `arcp://name,template/terms#` | The unique identifier for the schema descriptor. This should be a persistent, managed unique ID in URL format (if available), e.g. `https://w3id.org/ldac/terms#`. The default uses an `arcp` URI, which can be used for schemas that don't have a persistent, managed unique ID or won't be published.
 
 ### Organization
 
