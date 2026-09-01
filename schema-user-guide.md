@@ -1,5 +1,7 @@
 # User Guide for Schema Creation
 
+Schemas specify a metadata vocabulary of classes, properties and other terms, and may include additional specifications and requirements for particular terms. For an example of a schema, see the [Language Data Commons Schema](https://w3id.org/ldac/terms) for language resources.
+
 This is a user guide for creating new schemas with `ro-crate-masp`. In your forked repository, follow the guide to:
 - [Edit Schema Spreadsheet](#edit-schema-spreadsheet)
 - [Edit Schema Text](#edit-schema-text)
@@ -14,6 +16,7 @@ The spreadsheet `schema/schema-crate/additional-ro-crate-metadata.xlsx` is a tem
 - [Organization](#organization): Contains the [Organization](http://schema.org/Organization) entity for the schema.
 - [CreativeWork](#creativework): Contains the [CreativeWork](http://schema.org/CreativeWork) entities for the schema.
 - [ResourceDescriptor](#resourcedescriptor): Contains the [ResourceDescriptor](http://www.w3.org/ns/dx/prof/ResourceDescriptor) entity for the schema.
+- [Schema](#schema): Contains the [Schema](http://schema.org/Schema) entity.
 - [Classes](#classes): Contains the [Class](http://schema.org/Class) entities for the schema.
 - [Properties](#properties): Contains the [Property](http://schema.org/Property) entities for the schema.
 - [DefinedTermSets](#definedtermsets): Contains the [DefinedTermSet](http://schema.org/DefinedTermSet) entities for the schema, if applicable.
@@ -46,26 +49,28 @@ The `@context` sheet describes the namespace and unique identifier of the schema
 
 Column | Example | Description
 --- | --- | ---
-name | `template` | The namespace for the schema descriptor. In the other metadata tabs, this namespace is prefixed to the terms. This should be a unique namespace for your schema, e.g. `ldac`.
+name | `template` | The namespace for the schema descriptor. In the other metadata sheets, this namespace is prefixed to the terms. This should be a unique namespace for your schema, e.g. `ldac`.
 @id | `arcp://name,template/terms#` | The unique identifier for the schema descriptor. This should be a persistent, managed unique ID in URL format (if available), e.g. `https://w3id.org/ldac/terms#`. The default uses an `arcp` URI, which can be used for schemas that don't have a persistent, managed unique ID or won't be published.
 
 ### Organization
 
+The `Organization` sheet contains any organisations that are referenced in the schema (e.g. in the `author` section on the `RootDataset` sheet). It contains the following columns:
+
 Column | Example | Description
 --- | --- | ---
-@id | `https://ror.org/00rqy9422` | The unique identifier for the organisation. This should be a persistent, managed unique ID in URL format (if available), for example, an [ROR](https://ror.org/), or a hash-based ID, e.g. `#UniversityOfQueensland`.
+@id | `https://ror.org/00rqy9422` | The unique identifier for the organisation, which is used to populate the `author` property in the `RootDataset` sheet. This should be a persistent, managed unique ID in URL format (if available), for example, an [ROR](https://ror.org/), or a hash-based ID, e.g. `#UniversityOfQueensland`.
 @type | `Organization` | The type of the entity. This should always be `Organization`.
 name | `The University of Queensland` | The name of the organisation in a human-readable format.
 
 ### CreativeWork
 
-The `CreativeWork` sheet contains any documents that are referenced in the schema (e.g. in the `conformsTo` and `license` sections on the `RootDataset` tab. At a minimum, it should list the MASP profile that the schema conforms to, and the license information. It contains the following columns:
+The `CreativeWork` sheet contains any documents that are referenced in the schema (e.g. in the `conformsTo` and `license` sections on the `RootDataset` sheet). At a minimum, it should list the MASP profile that the schema conforms to, and the license information. It contains the following columns:
 
 **MASP Profile Example:**
 
 Column | Example | Description
 --- | --- | ---
-@id | `https://w3id.org/ro/ro-crate-masp/profile` | The unique identifier for the MASP profile. This should be a persistent, managed unique ID in URL format (if available), e.g. `https://w3id.org/ro/ro-crate-masp/profile`.
+@id | `https://w3id.org/ro/ro-crate-masp/profile` | The unique identifier for the MASP profile which this schema conforms to.
 @type | `[CreativeWork, Profile]` | The type of the entity. This should always be `[CreativeWork, Profile]`.
 name | `RO-Crate MASP Profile` | The name of the profile in a human-readable format.
 
@@ -79,7 +84,7 @@ name | `Apache License, Version 2.0` | The name of the license in a human-readab
 
 ### ResourceDescriptor
 
-The `ResourceDescriptor` sheet contains the entity that all other specialized schema terms (Classes, Properties, DefinedTermSets, DefinedTerms, ItemLists, ItemListElements) are listed under. It contains the following columns:
+The `ResourceDescriptor` sheet contains the entity that all other specialized schema terms (Classes, Properties, DefinedTermSets, DefinedTerms, ItemLists, ItemListElements) are part of. It contains the following columns:
 
 Column | Example | Description
 --- | --- | ---
@@ -88,6 +93,16 @@ Column | Example | Description
 name | `Specialized Schema Terms` | The name of the `ResourceDescriptor` entity in a human-readable format.
 hasRole | `"http://www.w3.org/ns/dx/prof/role/schema"` | The role of the `ResourceDescriptor` entity. This should always be `"http://www.w3.org/ns/dx/prof/role/schema"`.
 
+### Schema
+
+The `Schema` sheet contains the entity that describes the schema itself. It contains the following columns:
+
+Column | Example | Description
+--- | --- | ---
+@id | http://www.w3.org/ns/dx/prof/role/schema | The identifier for the `Schema` entity.
+@type | `Schema` | The type of the entity. This should always be `Schema`.
+name | `Schema` | The name of the `Schema` entity in a human-readable format.
+description | `Machine-readable structural descriptions of data defined by the profile` | A description of the `Schema` entity and how it should be used.
 
 ### Classes
 
@@ -183,7 +198,7 @@ The `schema/schema-text.md` file allows you to provide more context and descript
 Complete list of the rules available to populate the document:
  - `${rules.all}`: Generate documentation for each Class and their expected Properties. This option will also create an _All Properties_ section with a summary of each property in the schema.
  - `${rules.allClasses}`: Generate documentation for each Class and their expected Properties. This option will also create an _All Properties_ section with a summary of each property in the schema.
- - `$rules.allPropertyValues`: Specific values such as strings, expected as a value for a property, for example, a particular file must have an @id of README.md.
+ - `${rules.allPropertyValues}`: Specific values such as strings, expected as a value for a property, for example, a particular file must have an @id of README.md.
  - `${rules.allDefinedTermSets}`: Generate documentation for each entity with the type [DefinedTermSet](https://schema.org/DefinedTermSet) and their expected Defined Terms.
  - `${rules.allItemLists}`: Generate documentation for each entity with the type [ItemList](https://schema.org/ItemList) and their expected Item List Elements.
 

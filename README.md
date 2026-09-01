@@ -2,6 +2,10 @@
 
 This repository contains templates for creating schemas and profiles for use with [ro-crate-masp](https://github.com/Language-Research-Technology/ro-crate-masp) (RO-Crate Machine Actionable Schemas and Profiles).
 
+Schemas specify a metadata vocabulary of classes, properties and other terms, and may include additional specifications and requirements for particular terms.
+
+Profiles describe how a schema is applied to a particular domain or use case, and can take metadata from multiple schemas. They are prose documents that provide more guidance on structuring collections, required metadata, access protocols and other additional details.
+
 ## Scope and Audience
 
 This is for people tasked with describing data, including librarians and archivists, software developers and data managers. It assumes a basic knowledge of what Schemas and Profiles are, and of linked-data fundamentals and experience in working with metadata.
