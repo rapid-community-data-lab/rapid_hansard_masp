@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAPID-CDL Hansard</title>
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
+    </p>
+    <h1>RAPID-Hansard Metadata Schema</h1>
+<p>This is a minimal schema for the <a href="https://rapid-cdl.edu.au">RAPID-CDL</a> project's Hansard datasets. It is likely to be extended in future.</p>
+<p><strong>1</strong> classes &middot; <strong>2</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#rapid_hansard%3ASession" title="rapid_hansard:Session">Session</a> — A sitting of a chamber of parliament on a given day</li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a> — Which chamber of the parliament this is a session of</li>
+<li><a href="#rapid_hansard%3Aparliament" title="rapid_hansard:parliament">Parliament</a> — Which government this represents a session of. e.g. “Australia”, “Queensland”.</li>
+    </ul>
+  </div>
+</div>
+<h2>Types of entities (specializations of Classes) and expected Properties</h2>
+<h3><a id="rapid_hansard%3ASession" title="rapid_hansard:Session"></a> Class: Session</h3>
+<p>A sitting of a chamber of parliament on a given day</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a></td>
+<td>No</td>
+<td>Which chamber of the parliament this is a session of</td>
+<td><a href="#rapid_hansard%3Achambers" title="rapid_hansard:chambers">Chambers of Parliament</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#rapid_hansard%3Aparliament" title="rapid_hansard:parliament">Parliament</a></td>
+<td>No</td>
+<td>Which government this represents a session of. e.g. “Australia”, “Queensland”.</td>
+<td><a href="https://www.popoloproject.com/specs/organization.html" title="https://www.popoloproject.com/specs/organization.html" target="_blank" rel="noopener">organization.html</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>All Properties</h2>
+<h3><a id="rapid_hansard%3Achamber" title="rapid_hansard:chamber"></a> Property: Chamber</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a></td>
+<td>Which chamber of the parliament this is a session of</td>
+<td><a href="#rapid_hansard%3Achambers" title="rapid_hansard:chambers">Chambers of Parliament</a></td>
+<td><a href="#rapid_hansard%3ASession" title="rapid_hansard:Session">Session</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="rapid_hansard%3Aparliament" title="rapid_hansard:parliament"></a> Property: Parliament</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#rapid_hansard%3Aparliament" title="rapid_hansard:parliament">Parliament</a></td>
+<td>Which government this represents a session of. e.g. “Australia”, “Queensland”.</td>
+<td><a href="https://www.popoloproject.com/specs/organization.html" title="https://www.popoloproject.com/specs/organization.html" target="_blank" rel="noopener">organization.html</a></td>
+<td><a href="#rapid_hansard%3ASession" title="rapid_hansard:Session">Session</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Property Values</h2>
+<p>No PropertyValue entities are defined.</p>
+<h2>Defined Term Sets</h2>
+<h3><a id="rapid_hansard%3Achambers"></a>Defined Term Set: Chambers of Parliament</h3>
+<p>ID: rapid_hansard:chambers</p>
+<p>The various chambers of parliament</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a id="rapid_hansard%3AHouse%20of%20Representatives">House of Representatives</a></td>
+<td>The House of Representatives is one name for the lower house of a parliament</td>
+</tr>
+<tr>
+<td><a id="rapid_hansard%3ASenate">Senate</a></td>
+<td>The Senate is one name for the upper house of a parliament (when present)</td>
+</tr>
+</tbody>
+</table>
+<p>For more information, see <a href="https://rapid-cdl.edu.au">RAPID-CDL</a>.</p>
+
+  </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</body>
+</html>
