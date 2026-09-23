@@ -1,0 +1,171 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/",
+      "rapid_hansard": "arcp://rapid_hansard/terms#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "identifier": "ro-crate-metadata.json",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      }
+    },
+    {
+      "@id": "https://doi.org/10.3565/y37z-4y53",
+      "@type": "Organization",
+      "name": "RAPID-CDL"
+    },
+    {
+      "@id": "https://w3id.org/ro/ro-crate-masp/profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile"
+    },
+    {
+      "@id": "https://www.apache.org/licenses/LICENSE-2.0.html",
+      "@type": "CreativeWork",
+      "name": "Apache License, Version 2.0"
+    },
+    {
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "rapid_hansard:Session"
+        },
+        {
+          "@id": "rapid_hansard:parliament"
+        },
+        {
+          "@id": "rapid_hansard:chamber"
+        },
+        {
+          "@id": "rapid_hansard:chambers"
+        },
+        {
+          "@id": "rapid_hansard:Senate"
+        },
+        {
+          "@id": "rapid_hansard:House of Representatives"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/dx/prof/role/schema",
+      "@type": "DefinedTerm, ResourceRole]",
+      "name": "Schema",
+      "description": "Machine-readable structural descriptions of data defined by the profile"
+    },
+    {
+      "@id": "rapid_hansard:Session",
+      "@type": "rdfs:Class",
+      "name": "Session",
+      "description": "A sitting of a chamber of parliament on a given day",
+      "rdfs:label": "rapid_hansard:Session",
+      "rdfs:comment": "A sitting of a chamber of parliament on a given day",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "rapid_hansard:parliament",
+      "@type": "rdf:Property",
+      "name": "Parliament",
+      "description": "Which government this represents a session of. e.g. “Australia”, “Queensland”.",
+      "domainIncludes": {
+        "@id": "rapid_hansard:Session"
+      },
+      "rangeIncludes": "https://www.popoloproject.com/specs/organization.html",
+      "rdfs:label": "Parliament",
+      "rdfs:comment": "Which government this represents a session of. e.g. “Australia”, “Queensland”.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "rapid_hansard:chamber",
+      "@type": "rdf:Property",
+      "name": "Chamber",
+      "description": "Which chamber of the parliament this is a session of",
+      "domainIncludes": {
+        "@id": "rapid_hansard:Session"
+      },
+      "rangeIncludes": {
+        "@id": "rapid_hansard:chambers"
+      },
+      "rdfs:label": "Chamber",
+      "rdfs:comment": "Which chamber of the parliament this is a session of",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "rapid_hansard:chambers",
+      "@type": "DefinedTermSet",
+      "name": "Chambers of Parliament",
+      "description": "The various chambers of parliament",
+      "rdfs:label": "rapid_hansard:chambers",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "rapid_hansard:Senate",
+      "@type": "DefinedTerm",
+      "name": "Senate",
+      "description": "The Senate is one name for the upper house of a parliament (when present)",
+      "rdfs:label": "rapid_hansard:Senate",
+      "inDefinedTermSet": {
+        "@id": "rapid_hansard:chambers"
+      },
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "rapid_hansard:House of Representatives",
+      "@type": "DefinedTerm",
+      "name": "House of Representatives",
+      "description": "The House of Representatives is one name for the lower house of a parliament",
+      "rdfs:label": "rapid_hansard:House of Representatives",
+      "inDefinedTermSet": {
+        "@id": "rapid_hansard:chambers"
+      },
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "RAPID-CDL Hansard",
+      "description": "This is an RO-Crate schema for Hansard datasets curated by the RAPID-CDL project",
+      "author": {
+        "@id": "https://doi.org/10.3565/y37z-4y53"
+      },
+      "license": {
+        "@id": "https://www.apache.org/licenses/LICENSE-2.0.html"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/ro-crate-masp/profile"
+      },
+      "hasResource": {
+        "@id": "#hasSpecializedSchema"
+      }
+    }
+  ]
+}
