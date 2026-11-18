@@ -34,7 +34,7 @@
     </p>
     <h1>RAPID-Hansard Metadata Schema</h1>
 <p>This is a minimal schema for the <a href="https://rapid-cdl.edu.au">RAPID-CDL</a> project's Hansard datasets. It is likely to be extended in future.</p>
-<p><strong>1</strong> classes &middot; <strong>2</strong> properties</p>
+<p><strong>1</strong> classes &middot; <strong>3</strong> properties</p>
 <div class="row">
   <div class="col-md-6 col-panel">
     <h3>Classes</h3>
@@ -48,6 +48,7 @@
     <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
     <ul id="prop-list" class="entity-list">
 <li><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a> — Which chamber of the parliament this is a transcript of</li>
+<li><a href="#rapid_hansard%3Adate" title="rapid_hansard:date">Date</a> — The date of the sitting day (i.e. the date the sitting day started, in the Australia/Canberra time zone).</li>
 <li><a href="#rapid_hansard%3Aparliament" title="rapid_hansard:parliament">Parliament</a> — Which government this represents a session of. e.g. “Australia”, “Queensland”.</li>
     </ul>
   </div>
@@ -89,6 +90,13 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="#rapid_hansard%3Adate" title="rapid_hansard:date">Date</a></td>
+<td>No</td>
+<td>The date of the sitting day (i.e. the date the sitting day started, in the Australia/Canberra time zone).</td>
+<td><a href="https://schema.org/Date" title="https://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="#rapid_hansard%3Aparliament" title="rapid_hansard:parliament">Parliament</a></td>
 <td>No</td>
 <td>Which government this represents a session of. e.g. “Australia”, “Queensland”.</td>
@@ -113,6 +121,25 @@
 <td><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a></td>
 <td>Which chamber of the parliament this is a transcript of</td>
 <td><a href="#rapid_hansard%3Achambers" title="rapid_hansard:chambers">Chambers of Parliament</a></td>
+<td><a href="#rapid_hansard%3ASittingDay" title="rapid_hansard:SittingDay">SittingDay</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="rapid_hansard%3Adate" title="rapid_hansard:date"></a> Property: Date</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#rapid_hansard%3Adate" title="rapid_hansard:date">Date</a></td>
+<td>The date of the sitting day (i.e. the date the sitting day started, in the Australia/Canberra time zone).</td>
+<td><a href="https://schema.org/Date" title="https://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
 <td><a href="#rapid_hansard%3ASittingDay" title="rapid_hansard:SittingDay">SittingDay</a></td>
 </tr>
 </tbody>
