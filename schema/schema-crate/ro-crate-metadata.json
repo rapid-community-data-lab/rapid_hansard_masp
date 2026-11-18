@@ -54,6 +54,9 @@
           "@id": "rapid_hansard:chamber"
         },
         {
+          "@id": "rapid_hansard:date"
+        },
+        {
           "@id": "rapid_hansard:chambers"
         },
         {
@@ -109,6 +112,21 @@
       },
       "rdfs:label": "Chamber",
       "rdfs:comment": "Which chamber of the parliament this is a transcript of",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "rapid_hansard:date",
+      "@type": "rdf:Property",
+      "name": "Date",
+      "description": "The date of the sitting day (i.e. the date the sitting day started, in the Australia/Canberra time zone).",
+      "domainIncludes": {
+        "@id": "rapid_hansard:SittingDay"
+      },
+      "rangeIncludes": "https://schema.org/Date",
+      "rdfs:label": "Date",
+      "rdfs:comment": "The date of the sitting day (i.e. the date the sitting day started, in the Australia/Canberra time zone).",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
