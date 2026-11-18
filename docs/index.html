@@ -40,20 +40,20 @@
     <h3>Classes</h3>
     <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
     <ul id="class-list" class="entity-list">
-<li><a href="#rapid_hansard%3ASession" title="rapid_hansard:Session">Session</a> — A sitting of a chamber of parliament on a given day</li>
+<li><a href="#rapid_hansard%3ASittingDay" title="rapid_hansard:SittingDay">SittingDay</a> — A sitting of a chamber of parliament on a given day</li>
     </ul>
   </div>
   <div class="col-md-6 col-panel">
     <h3>Properties</h3>
     <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
     <ul id="prop-list" class="entity-list">
-<li><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a> — Which chamber of the parliament this is a session of</li>
+<li><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a> — Which chamber of the parliament this is a transcript of</li>
 <li><a href="#rapid_hansard%3Aparliament" title="rapid_hansard:parliament">Parliament</a> — Which government this represents a session of. e.g. “Australia”, “Queensland”.</li>
     </ul>
   </div>
 </div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3><a id="rapid_hansard%3ASession" title="rapid_hansard:Session"></a> Class: Session</h3>
+<h3><a id="rapid_hansard%3ASittingDay" title="rapid_hansard:SittingDay"></a> Class: SittingDay</h3>
 <p>A sitting of a chamber of parliament on a given day</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -84,7 +84,7 @@
 <tr>
 <td><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a></td>
 <td>No</td>
-<td>Which chamber of the parliament this is a session of</td>
+<td>Which chamber of the parliament this is a transcript of</td>
 <td><a href="#rapid_hansard%3Achambers" title="rapid_hansard:chambers">Chambers of Parliament</a></td>
 <td></td>
 </tr>
@@ -111,9 +111,9 @@
 <tbody>
 <tr>
 <td><a href="#rapid_hansard%3Achamber" title="rapid_hansard:chamber">Chamber</a></td>
-<td>Which chamber of the parliament this is a session of</td>
+<td>Which chamber of the parliament this is a transcript of</td>
 <td><a href="#rapid_hansard%3Achambers" title="rapid_hansard:chambers">Chambers of Parliament</a></td>
-<td><a href="#rapid_hansard%3ASession" title="rapid_hansard:Session">Session</a></td>
+<td><a href="#rapid_hansard%3ASittingDay" title="rapid_hansard:SittingDay">SittingDay</a></td>
 </tr>
 </tbody>
 </table>
@@ -132,7 +132,7 @@
 <td><a href="#rapid_hansard%3Aparliament" title="rapid_hansard:parliament">Parliament</a></td>
 <td>Which government this represents a session of. e.g. “Australia”, “Queensland”.</td>
 <td><a href="https://www.popoloproject.com/specs/organization.html" title="https://www.popoloproject.com/specs/organization.html" target="_blank" rel="noopener">organization.html</a></td>
-<td><a href="#rapid_hansard%3ASession" title="rapid_hansard:Session">Session</a></td>
+<td><a href="#rapid_hansard%3ASittingDay" title="rapid_hansard:SittingDay">SittingDay</a></td>
 </tr>
 </tbody>
 </table>
