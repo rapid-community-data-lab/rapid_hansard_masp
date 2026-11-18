@@ -45,7 +45,7 @@
       },
       "hasPart": [
         {
-          "@id": "rapid_hansard:Session"
+          "@id": "rapid_hansard:SittingDay"
         },
         {
           "@id": "rapid_hansard:parliament"
@@ -71,11 +71,11 @@
       "description": "Machine-readable structural descriptions of data defined by the profile"
     },
     {
-      "@id": "rapid_hansard:Session",
+      "@id": "rapid_hansard:SittingDay",
       "@type": "rdfs:Class",
-      "name": "Session",
+      "name": "SittingDay",
       "description": "A sitting of a chamber of parliament on a given day",
-      "rdfs:label": "rapid_hansard:Session",
+      "rdfs:label": "rapid_hansard:SittingDay",
       "rdfs:comment": "A sitting of a chamber of parliament on a given day",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
@@ -87,7 +87,7 @@
       "name": "Parliament",
       "description": "Which government this represents a session of. e.g. “Australia”, “Queensland”.",
       "domainIncludes": {
-        "@id": "rapid_hansard:Session"
+        "@id": "rapid_hansard:SittingDay"
       },
       "rangeIncludes": "https://www.popoloproject.com/specs/organization.html",
       "rdfs:label": "Parliament",
@@ -100,15 +100,15 @@
       "@id": "rapid_hansard:chamber",
       "@type": "rdf:Property",
       "name": "Chamber",
-      "description": "Which chamber of the parliament this is a session of",
+      "description": "Which chamber of the parliament this is a transcript of",
       "domainIncludes": {
-        "@id": "rapid_hansard:Session"
+        "@id": "rapid_hansard:SittingDay"
       },
       "rangeIncludes": {
         "@id": "rapid_hansard:chambers"
       },
       "rdfs:label": "Chamber",
-      "rdfs:comment": "Which chamber of the parliament this is a session of",
+      "rdfs:comment": "Which chamber of the parliament this is a transcript of",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
